@@ -103,6 +103,8 @@ fn main() {
         println!("cargo:rustc-link-lib=c++");
     } else if target.contains("windows") && target.contains("msvc") {
         // MSVC links C++ runtime automatically
+    } else if target.contains("wasm32") {
+        // WASM toolchains handle C++ runtime linking
     } else {
         // Linux, BSDs, Android, and other Unix-like systems use libstdc++
         println!("cargo:rustc-link-lib=stdc++");
